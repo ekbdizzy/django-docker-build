@@ -1,15 +1,14 @@
 import os
-from dotenv import load_dotenv, find_dotenv
+from environs import Env
 
-load_dotenv(find_dotenv('.env'))
+env = Env()
+env.read_env('.env')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_SECRET_KEY = 'dq+sh59b@7+91zd(vx0iwr^h59_$ezd(m9r5+k)0vdgna-a)ka'
 SECRET_KEY = os.environ.get('SECRET_KEY', TEMPLATE_SECRET_KEY)
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = env.bool('DEBUG')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
