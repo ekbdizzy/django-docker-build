@@ -1,5 +1,5 @@
 Django==3.1.14
-gevent==20.9.0
+gevent==23.9.1
 gunicorn==20.0.4
 psycopg2-binary==2.8.6
 environs==9.2.0
